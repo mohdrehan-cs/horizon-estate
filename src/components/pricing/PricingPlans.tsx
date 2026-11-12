@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { ArrowRight, Check, Loader2, MessageCircle, ShieldCheck, Sparkles } from "lucide-react";
 import type { Plan } from "@/types";
 import { formatINRFull } from "@/lib/format";

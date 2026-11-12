@@ -11,7 +11,6 @@ import {
   RotateCcw,
   Search,
   SlidersHorizontal,
-  X,
 } from "lucide-react";
 import type { Property } from "@/types";
 import { amenityOptions as amenityData, properties } from "@/data/properties";

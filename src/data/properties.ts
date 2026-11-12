@@ -1,5 +1,5 @@
 import type { Property } from "@/types";
-import { gallery, img } from "./images";
+import { gallery } from "./images";
 
 type PropertySeed = Pick<
   Property,

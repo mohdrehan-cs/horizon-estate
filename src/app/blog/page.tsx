@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const [editorPick, ...rest] = blogPosts;
+  const [editorPick] = blogPosts;
 
   return (
     <div className="bg-cream pb-16">

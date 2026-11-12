@@ -299,7 +299,7 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
               <section className="mt-10">
                 <h2 className="text-2xl text-forest">Price history</h2>
                 <div className="mt-4 overflow-hidden rounded-2xl border border-line bg-white">
-                  {property.priceHistory.map((entry, index) => (
+                  {property.priceHistory.map((entry) => (
                     <div
                       key={entry.date}
                       className="flex items-center justify-between gap-4 border-b border-line/70 px-4 py-3 last:border-0"

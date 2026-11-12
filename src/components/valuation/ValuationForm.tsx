@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { ArrowRight, CheckCircle2, Loader2, MapPin, Sparkles } from "lucide-react";
 import { cities, getCity } from "@/data/cities";
 import { formatINR, formatINRFull } from "@/lib/format";
@@ -48,16 +48,14 @@ export function ValuationForm() {
   const locality = city.localities.find((item) => item.slug === localitySlug) ?? city.localities[0];
   const baseRate = parseRate(locality.avgPrice);
 
-  const estimate = useMemo(() => {
-    const floorFactor = floor === "Ground floor" ? 0.98 : floor === "Top floor" ? 1.01 : 1;
-    const value = baseRate * area * (typeMultiplier[type] ?? 1) * (conditionMultiplier[condition] ?? 1) * Math.max(0.72, 1 - age * 0.012) * floorFactor;
-    return {
-      low: Math.round((value * 0.94) / 100000) * 100000,
-      high: Math.round((value * 1.06) / 100000) * 100000,
-      mid: Math.round(value / 100000) * 100000,
-      rate: Math.round(value / area),
-    };
-  }, [baseRate, area, type, condition, age, floor]);
+  const floorFactor = floor === "Ground floor" ? 0.98 : floor === "Top floor" ? 1.01 : 1;
+  const value = baseRate * area * (typeMultiplier[type] ?? 1) * (conditionMultiplier[condition] ?? 1) * Math.max(0.72, 1 - age * 0.012) * floorFactor;
+  const estimate = {
+    low: Math.round((value * 0.94) / 100000) * 100000,
+    high: Math.round((value * 1.06) / 100000) * 100000,
+    mid: Math.round(value / 100000) * 100000,
+    rate: Math.round(value / area),
+  };
 
   function onCityChange(value: string) {
     setCitySlug(value);

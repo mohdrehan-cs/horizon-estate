@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { ArrowRight, Check, Loader2, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Check, Loader2, MessageCircle } from "lucide-react";
 import { services } from "@/data/services";
 import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/Button";
@@ -151,11 +151,10 @@ export function ContactForm() {
               key={option}
               type="button"
               onClick={() => update("contact", option)}
-              className={`rounded-full border px-3.5 py-2 text-[11px] font-semibold transition ${
-                form.contact === option
+              className={`rounded-full border px-3.5 py-2 text-[11px] font-semibold transition ${form.contact === option
                   ? "border-forest bg-forest text-cream"
                   : "border-line bg-white text-muted hover:border-forest/30 hover:text-forest"
-              }`}
+                }`}
             >
               {option}
             </button>
