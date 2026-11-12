@@ -1,0 +1,37 @@
+"use client";
+
+import { motion } from "framer-motion";
+import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+
+export function Reveal({
+  children,
+  delay = 0,
+  className,
+  y = 20,
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+  y?: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function StaggerGrid({ children, className }: { children: ReactNode; className?: string }) {
+  return (
+    <div className={cn(className)}>
+      {children}
+    </div>
+  );
+}
